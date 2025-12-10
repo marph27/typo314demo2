@@ -1,0 +1,13 @@
+plugin.tx_dp_cookieconsent._LOCAL_LANG {
+    de {
+        message = Neben technisch notwendigen Cookies würden wir gerne Cookies verwenden, um Inhalte und Zugriffe auf unsere Website zu analysieren. Somit würden wir Informationen zu Ihrer Verwendung unserer Website an unsere Partner für Analysen weitergeben. Bitte akzeptieren Sie diese Cookies. Weitere Infos finden Sie in unserer
+        #dismiss = XXX
+        link = Datenschutzerklärung
+        deny = Auswahl speichern
+        dismiss = Cookies akzeptieren
+        # Checkbox labels
+        #dpRequire = Systemcookies
+        #dpStatistik = Statistiken
+        #dpMarketing = Marketing
+    }
+}

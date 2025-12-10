@@ -1,0 +1,4 @@
+@import 'EXT:dp_cookieconsent/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:news/Configuration/TypoScript/setup.typoscript'
+
+@import './TypoScript/'

@@ -1,0 +1,46 @@
+styles:
+  templates:
+    layoutRootPath: 'EXT:sitepackage/Resources/Private/Extensions/fluid_styled_content/Resources/Private/Layouts/'
+    partialRootPath: 'EXT:sitepackage/Resources/Private/Extensions/fluid_styled_content/Resources/Private/Partials/'
+    templateRootPath: 'EXT:sitepackage/Resources/Private/Extensions/fluid_styled_content/Resources/Private/Templates/'
+  content:
+    defaultHeaderType: '1'
+    
+    textmedia:
+      textMargin: '20'
+      columnSpacing: '20'
+      rowSpacing: '20'
+      maxW: '1000'
+      maxWInText: '1000'
+      linkWrap:
+        width: '1000m'
+        height: '1000m'
+        lightboxEnabled: '1'
+        lightboxCssClass: 'fancybox'
+        lightboxRelAttribute: 'fancybox[{field:uid}]'
+
+page:
+  pageview:
+    paths: 'EXT:sitepackage/Resources/Private/PageView/'
+
+  meta:
+    description: 'Testsite TYPO3 14'
+    author: ''
+    keywords: ''
+    viewport: 'width=device-width, initial-scale=1'
+    robots: 'index,follow'
+    apple-mobile-web-app-capable: 'no'
+    compatible: 'IE=edge'
+
+  tracking:
+    google:
+      trackingID: ''
+      anonymizeIp: '1'
+
+config:
+  no_cache: '0'
+  removeDefaultJS: '0'
+  admPanel: '1'
+  prefixLocalAnchors: 'all'
+  headerComment: 'w.m.graphiX'
+  sendCacheHeaders: '1'

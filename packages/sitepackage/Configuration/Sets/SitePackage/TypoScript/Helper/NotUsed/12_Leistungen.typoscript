@@ -1,0 +1,124 @@
+[traverse(page, "uid") == 1]
+
+lib.maincontent = COA
+lib.maincontent {
+  40 = COA
+  40 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=40
+      select.pidInList = this
+
+      renderObj = COA
+      renderObj {
+
+        10 = TEXT
+        10.stdWrap.field = header
+        10.stdWrap.wrap = <h2 class="leistungen-header">|</h2>
+
+        20 = COA
+        20 {
+          10 = FILES
+          10 {
+            references {
+              table = tt_content
+              uid.data = field:uid
+              fieldName = assets
+            }
+            renderObj = COA
+            renderObj {
+              10 = IMAGE
+              10 {
+                file.import.data = file:current:uid
+                file.treatIdAsReference = 1
+                altText.data = file:current:title
+                
+              }
+
+              20 = TEXT
+              20 {
+                file.import.data = file:current:uid
+                file.treatIdAsReference = 1
+                value.data = file:current:title
+                wrap = <span>|</span>
+              }
+              stdWrap.typolink.parameter.data = file:current:link
+              stdWrap.typolink.ATagParams = class="leistungen-image transition"
+            }
+          }
+        wrap = <div class="leistungen-images">|</div>
+        }
+
+        30 = TEXT
+        30.stdWrap.field = bodytext
+        30.stdWrap.parseFunc < lib.parseFunc_RTE
+        30.stdWrap.wrap = <div class="leistungen-content">|</div>
+      }
+    }
+    wrap = <div id="leistungen" class="home"><div class="wrapper grid_12"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/icon_VISCONTO.png" class="icon_visconto">|</div></div>
+  }
+
+}
+
+[end]
+
+
+[traverse(page, "uid") == 8]
+
+lib.maincontent = COA
+lib.maincontent {
+  40 = COA
+  40 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=40
+      select.pidInList = 1
+
+      renderObj = COA
+      renderObj {
+
+        20 = COA
+        20 {
+          10 = FILES
+          10 {
+            references {
+              table = tt_content
+              uid.data = field:uid
+              fieldName = assets
+            }
+            renderObj = COA
+            renderObj {
+              10 = IMAGE
+              10 {
+                file.import.data = file:current:uid
+                file.treatIdAsReference = 1
+                altText.data = file:current:title
+                
+              }
+
+              20 = TEXT
+              20 {
+                file.import.data = file:current:uid
+                file.treatIdAsReference = 1
+                value.data = file:current:title
+                wrap = <span>|</span>
+              }
+              stdWrap.typolink.parameter.data = file:current:link
+              stdWrap.typolink.ATagParams = class="leistungen-image transition"
+            }
+          }
+        wrap = <div class="leistungen-images">|</div>
+        }
+
+      }
+    }
+    wrap = <div id="leistungen"><div class="wrapper grid_12">|</div></div>
+  }
+
+}
+
+[end]

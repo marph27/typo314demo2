@@ -1,0 +1,19 @@
+[traverse(page, "uid") == 1]
+
+lib.maincontent = COA
+lib.maincontent {
+  70 = COA
+  70 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=70
+      select.languageField = sys_language_uid
+    }
+    wrap = <div id="nachchaltigkeit" class="pinnedBox"><div class="wrapper grid_12"><div class="nachchaltigkeit-content">|</div></div><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/ecke_grau-weiss.png" class="nachhaltigkeit-ecke"></div>
+  }
+
+}
+
+[end]

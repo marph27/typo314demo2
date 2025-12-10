@@ -1,0 +1,18 @@
+[traverse(page, "uid") == 1]
+
+lib.maincontent {
+  20 = COA
+  20 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=20
+      select.languageField = sys_language_uid
+    }
+    wrap = <div id="services"><div class="wrapper">|</div><div class="services-ecke-wrapper"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/ecke_grau-weiss.png" class="services-ecke"></div></div>
+  }
+
+}
+
+[end]

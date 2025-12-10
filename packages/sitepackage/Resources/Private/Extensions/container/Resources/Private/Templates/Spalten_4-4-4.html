@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="main">
+
+    <div class="grid_12 gridelement_content grid_4-4-4">
+
+        <div class="grid-column-111">
+            <f:if condition="{spalte-1}">
+                <f:for each="{spalte-1}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+        
+        <div class="grid-column-112">
+            <f:if condition="{spalte-2}">
+                <f:for each="{spalte-2}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+        
+        <div class="grid-column-113">
+            <f:if condition="{spalte-3}">
+                <f:for each="{spalte-3}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </f:if>
+        </div>
+
+    </div>
+
+</f:section>
+</html>

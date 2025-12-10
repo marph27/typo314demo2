@@ -1,0 +1,19 @@
+[traverse(page, "uid") == 1]
+
+lib.maincontent = COA
+lib.maincontent {
+  60 = COA
+  60 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=60
+      select.languageField = sys_language_uid
+    }
+    wrap = <div id="geschaeftsfuehrer" class="pinnedBox"><div class="wrapper grid_12"><div class="geschaeftsfuehrer-content"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/icon_VISCONTO.png" class="icon_visconto">|</div></div></div>
+  }
+
+}
+
+[end]

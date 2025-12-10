@@ -1,0 +1,429 @@
+page {
+    includeJSFooterlibs {
+ 		tweenMax = EXT:sitepackage/Resources/Public/JavaScript/ScrollMagic/TweenMax.min.js
+		scroolMagic = EXT:sitepackage/Resources/Public/JavaScript/ScrollMagic/ScrollMagic.js
+		animation = EXT:sitepackage/Resources/Public/JavaScript/ScrollMagic/animation.gsap.js
+		#addIndicators = EXT:sitepackage/Resources/Public/JavaScript/ScrollMagic/debug.addIndicators.js
+    }
+
+    includeJSFooter {
+
+    }
+}
+	
+
+# ------------------- ScrollMagic-Javascripts einbinden ------------------- #    
+page.footerData.51 = TEXT
+page.footerData.51.value (
+  <script>
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	// ------ ParallaxScrolling für alle .pinnedBox-Elemente -------------
+	$(document).ready(function() {
+
+		var tooSmall = false;
+		var controller = null;
+		var maxWidth = 768; // or whatever your max width is
+
+		if( $(window).width() < maxWidth ) {
+			tooSmall = true;
+			//alert("Kleiner als 768px");
+		}
+
+		function initScrollMagic() {
+			//$('body').scrollTop( 0 );
+			var controllerPinned = new ScrollMagic.Controller();
+			// add your ScrollMagic scene goodness here
+			
+			// get all slides
+			var slides = document.querySelectorAll(".pinnedBox");
+
+			// create scene for every slide
+			for (var i=0; i<slides.length; i++) {
+				new ScrollMagic.Scene({
+						triggerElement: slides[i],
+						triggerHook: 'onLeave',
+						duration: "150%"
+					})
+					.setPin(slides[i], {pushFollowers: false})
+					//.addIndicators({name: "pinnedBox"+[i]}) // add indicators (requires plugin)
+					.addTo(controllerPinned);
+			}
+		}
+
+		if( !tooSmall ) {
+			initScrollMagic();
+			//alert("Größer als 768px");
+		}
+
+		// part of the problem is that window resizes can trigger multiple times as the events fire rapidly
+		// this solution prevents the controllerPinned from being initialized/destroyed more than once
+		$(window).resize( function() {
+			var wWidth = $(window).width();
+			if( wWidth < maxWidth ) {
+				if( controllerPinned !== null && controllerPinned !== undefined ) {
+					// completely destroy the controllerPinned
+					controllerPinned = controllerPinned.destroy( true );
+					// if needed, use jQuery to manually remove styles added to DOM elements by GSAP etc. here
+				}
+			} else if( wWidth >= maxWidth ) {
+				if( controllerPinned === null || controllerPinned === undefined ) {
+					// reinitialize ScrollMagic only if it is not already initialized
+					initScrollMagic();
+				}
+			}
+		});
+
+	});
+  </script>
+)
+
+
+
+
+# Startseite
+[traverse(page, "uid") == 1]
+
+# ------ Icon Scroll nach unten ausblenden -------------
+page.footerData.52 = TEXT
+page.footerData.52.value (
+<script>
+	// build tween
+	var iconScrollTween = TweenMax.staggerFromTo(".icon_scroll", 1, {opacity: "1", scale: 1}, {opacity: "0", scale: 0.5}, 2);
+
+	// build scene
+	var iconScrollScene = new ScrollMagic.Scene({
+		triggerElement: "#header",
+		triggerHook: 0,
+		offset: 50,
+		duration: 0,
+	})
+	.setTween(iconScrollTween)
+	//.addIndicators({name: "ScrollIcon"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+#Icon Scroll wurde entfernt
+page.footerData.52 >
+
+# ------ Button Stellensuche -------------
+page.footerData.53 = TEXT
+page.footerData.53.value (
+<script>
+	// build tween
+	var buttonStellensucheTween = TweenMax.staggerFromTo(".button-stellensuche", 2, {opacity: "0", scale: 0.2, x:600}, {opacity: "1", scale: 1, x:0}, 2);
+
+	// build scene
+	var buttonStellensucheScene = new ScrollMagic.Scene({
+		triggerElement: "#header",
+		triggerHook: 0,
+		offset: 10,
+		duration: 10,
+		})
+		.setTween(buttonStellensucheTween)
+		//.setClassToggle('.button-stellensuche', 'move') //Klasse .move hinzufügen
+		//.addIndicators({name: "ButtonStellensuche"}) // add indicators (requires plugin)
+		.addTo(controller);
+</script>
+)
+
+# ------ Back LeistungenMenu einblenden -------------
+page.footerData.65 = TEXT
+page.footerData.65.value (
+<script>
+	// build tween
+	var back_leistungenMenuTween = TweenMax.staggerFromTo(".back_leistungenMenu", 1.5, {x:400}, {x:0}, 2);
+
+	// build scene
+	var back_leistungenMenuScene = new ScrollMagic.Scene({
+			triggerElement: "#leistungenMenu",
+			offset: 0,
+			triggerHook: 1,
+			duration: "60%",
+		})
+		.setTween(back_leistungenMenuTween)
+		//.addIndicators({name: "leistungenMenu - graue Ecke"}) // add indicators (requires plugin)
+		.addTo(controller);
+</script>
+)
+
+# ------ Headlines LeistungenMenu einblenden -------------
+page.footerData.54 = TEXT
+page.footerData.54.value (
+<script>
+	// build tween
+	var leistungenMenuTween = TweenMax.staggerFromTo("#leistungenMenu a", 2, {opacity: "0"}, {opacity: "1"}, 1);
+
+	// build scene
+	var leistungenMenuScene = new ScrollMagic.Scene({
+		triggerElement: "#leistungenMenu",
+		duration: 300,
+	})
+	.setTween(leistungenMenuTween)
+	//.addIndicators({name: "leistungenMenu"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+# ------ Services-ecke einblenden -------------
+page.footerData.55 = TEXT
+page.footerData.55.value (
+<script>
+	// build tween
+	var servicesEckeTween = TweenMax.from(".services-ecke", 2, {x:400, ease: "circ.inOut",});
+
+	// build scene
+	var servicesEckeScene = new ScrollMagic.Scene({
+		triggerElement: "#services",
+		duration: 300,
+		offset: 500,
+	})
+	.setTween(servicesEckeTween)
+	//.addIndicators({name: "servicesEcke"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+
+# ------ Leistungen-Icons einblenden -------------
+page.footerData.56 = TEXT
+page.footerData.56.value (
+<script>
+	var leistungenTween = new TimelineMax();
+ 
+	leistungenTween
+		.staggerFromTo("#leistungen .icon_visconto", 2, {opacity: "0", y:-200}, {opacity: "1", y:0}, 1)
+		.staggerFromTo(".leistungen-header", 2, {opacity: "0", x:100}, {opacity: "1", x:0}, 1)
+		.staggerFromTo(".leistungen-image", 2, {opacity: "0", x:100}, {opacity: "1", x:0}, 1)
+		.staggerFromTo(".leistungen-content", 2, {opacity: "0", x:100}, {opacity: "1", x:0}, 1);
+		//.to($('#slide01 h1'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
+		//.to($('#slide01 section'), 0.2, {autoAlpha: 0, ease:Power1.easeNone}, 1.5)
+		//.set($('#slide01 h1'), {text: "Rock Climbing"})
+		//.set($('#slide01 p'), {text: "Remember that time spent on a rock climb isnt subtracted from your life span."})
+		//.fromTo($('#slide01 h1'), 0.7, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '+=0.4')
+		//.fromTo($('#slide01 section'), 0.6, {y: '+=20'}, {y: 0, autoAlpha: 1, ease:Power1.easeOut}, '-=0.6')
+		//.set($('#slide01 h1'), {autoAlpha: 1}, '+=2');
+
+	// build scene
+	var leistungenImageScene = new ScrollMagic.Scene({
+		triggerElement: ".leistungen-images",
+		triggerHook: 'onEnter',
+		duration: "50%",
+	})
+	.setTween(leistungenTween)
+	//.addIndicators({name: "leistungen-images"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+
+# ------ Team-Bilder einblenden -------------
+page.footerData.58 = TEXT
+page.footerData.58.value (
+<script>
+	// build tween
+	var teamImageTween = TweenMax.staggerFromTo(".team_image", 0.5, {opacity: "0", x:100}, {opacity: "1", x:0}, 0.1);
+
+	// build scene
+	var teamImageScene = new ScrollMagic.Scene({
+		triggerElement: "#team2",
+		offset: 0,
+		duration: "50%",
+	})
+	.setTween(teamImageTween)
+	//.addIndicators({name: "team-images"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+
+
+# ------ Team3 -------------
+page.footerData.59 = TEXT
+page.footerData.59.value (
+<script>
+	// build tween
+	var team3HeadlineTween = TweenMax.staggerFromTo(".back_team3", 1.5, {x:-400}, {x:0}, 2);
+
+	// build scene
+	var team22HeadlineScene = new ScrollMagic.Scene({
+			triggerElement: "#team3",
+			offset: 0,
+			duration: "60%",
+		})
+		.setTween(team3HeadlineTween)
+		//.addIndicators({name: "Team 3 - graue Ecke"}) // add indicators (requires plugin)
+		.addTo(controller);
+</script>
+
+<script>
+	// build tween
+	var team3HeadlineTween = TweenMax.staggerFromTo(".team3-content h2", 1.5, {opacity: "0", x:200}, {opacity: "1", x:0}, 2);
+
+	// build scene
+	var team22HeadlineScene = new ScrollMagic.Scene({
+			triggerElement: ".team3-content",
+			offset: -200,
+			duration: 0,
+		})
+		.setTween(team3HeadlineTween)
+		//.addIndicators({name: "Team 3 - Headline"}) // add indicators (requires plugin)
+		.addTo(controller);
+</script>
+
+<script>
+	// build tween
+	var team22ButtonTween = TweenMax.staggerFromTo(".team3-content .button", 1, {opacity: "0", x:-150}, {opacity: "1", x:0}, 2);
+
+	// build scene
+	var team22ButtonScene = new ScrollMagic.Scene({
+			triggerElement: ".team3-content",
+			offset: -200,
+			duration: 0,
+		})
+		.setTween(team22ButtonTween)
+		//.addIndicators({name: "Team 3 - Button"}) // add indicators (requires plugin)
+		.addTo(controller);
+</script>
+)
+
+
+# ------ Nachhaltigkeits-ecke einblenden -------------
+page.footerData.60 = TEXT
+page.footerData.60.value (
+<script>
+	// build tween
+	var nachchaltigkeitEckeTween = TweenMax.from(".nachhaltigkeit-ecke", 2, {y:400, ease: "circ.inOut",});
+
+	// build scene
+	var nachchaltigkeitEckeScene = new ScrollMagic.Scene({
+		triggerElement: "#nachchaltigkeit",
+		triggerHook: 'onLeave',
+		duration: 0,
+		offset: 0,
+	})
+	.setTween(nachchaltigkeitEckeTween)
+	//.addIndicators({name: "nachchaltigkeitEcke"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+
+# ------ Social-Icons einblenden -------------
+page.footerData.61 = TEXT
+page.footerData.61.value (
+<script>
+	// build tween
+	var socialIconsTween = TweenMax.staggerFromTo(".social_icon", 2, {opacity: "0", x:100}, {opacity: "1", x:0}, 1);
+
+	// build scene
+	var socialIconsScene = new ScrollMagic.Scene({
+		triggerElement: ".servicenummer",
+		duration: "10%",
+	})
+	.setTween(socialIconsTween)
+	//.addIndicators({name: "socialIcons"}) // add indicators (requires plugin)
+	.addTo(controller);
+</script>
+)
+
+[end]
+
+
+# ------ ParallaxScrolling für alle .pinnedBox-Elemente -------------
+page.footerData.222 = TEXT
+page.footerData.222.value (
+<script>
+	function pinnedBoxX() { // wait for document ready
+		// get all slides
+		var slides = document.querySelectorAll(".pinnedBox");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i],
+					triggerHook: 'onLeave',
+					duration: "150%"
+				})
+				.setPin(slides[i], {pushFollowers: false})
+				//.addIndicators({name: "pinnedBox"+[i]}) // add indicators (requires plugin)
+				.addTo(controller);
+		}
+	}
+</script>
+)
+
+
+# ------ ParallaxScrolling für alle Ansprechpartner-Boxen -------------
+page.footerData.223 = TEXT
+page.footerData.223.value (
+<script>
+	$(function () { // wait for document ready
+		// get all slides
+		var slides = document.querySelectorAll(".frame-layout-60");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i],
+					triggerHook: 'onLeave',
+					duration: "150%"
+				})
+				.setPin(slides[i], {pushFollowers: false})
+				//.addIndicators({name: "pinnedBox"+[i]}) // add indicators (requires plugin)
+				.addTo(controller);
+		}
+	});
+</script>
+)
+#page.footerData.223 >
+
+
+
+
+# ------ Test ParallaxScrolling für alle .testpinnedBox-Elemente -------------
+page.footerData.224 = TEXT
+page.footerData.224.value (
+<script>
+	$(function () { // wait for document ready
+		// get all slides
+		var slides = document.querySelectorAll(".testpinnedBox");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i],
+					triggerHook: 'onLeave',
+					duration: "300%"
+				})
+				.setPin(slides[i], {pushFollowers: false})
+				//.setTween(TweenMax.to(".wrapper", 0.5, {backgroundColor: "lime"}))
+				//.addIndicators({name: "pinnedBox"+[i]}) // add indicators (requires plugin)
+				.addTo(controller);
+		}
+	});
+</script>
+)
+page.footerData.224 >
+
+
+
+
+
+# ------  -------------
+page.footerData.111 = TEXT
+page.footerData.111.value (
+<script>
+	$('.frame-ecke-rechtsUnten').each(function(){
+		// Create a scene for each project
+		var myScene = new ScrollMagic.Scene({
+			triggerElement: this,
+			triggerHook: 'onCenter',
+		})
+		.setClassToggle(this, 'moveAction')
+		.addTo(controller);
+	});
+</script>
+
+)

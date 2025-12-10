@@ -1,0 +1,83 @@
+lib.pancake = TEXT
+lib.pancake {
+    value = <div class="pancake transition"><div class="line-top transition"></div><div class="line-middle transition"></div><div class="line-bottom transition"></div></div>
+}
+  
+lib.mainnavi = COA
+lib.mainnavi {
+  #10 = TEXT
+  #10.value = <img class="logo_small" src="/typo3conf/ext/sitepackage/Resources/Public/Images/Logo_UuD_small.png"/>
+  
+  20 = HMENU
+  20 {
+    special = directory
+    special.value = 2
+  
+    ### Erste Ebene ###
+    1 = TMENU
+    1 {
+      wrap = <ul class="list1">|</ul>
+      expAll = 1
+      
+      NO = 1
+      NO {
+        wrapItemAndSub = <li class="level_1 navibtn">|</li>
+        #linkWrap = <span class="pfeil transition"></span>|
+        stdWrap.field = title
+        # darf nicht gesetzt sein, sonst wird Text ausgegeben
+        stdWrap.htmlSpecialChars = 0
+      }
+      
+      CUR = 1
+      CUR < .NO
+      CUR.wrapItemAndSub = <li class="level_1 active navibtn">|</li>
+      
+      ACT = 1
+      ACT < .NO
+      ACT.wrapItemAndSub = <li class="level_1 navibtn">|</li>
+
+      ACTIFSUB < .CUR
+    }
+
+    ### Zweite Ebene ###
+    2 = TMENU
+    2 {
+      wrap = <ul class="list2">|</ul>
+      expAll = 1
+      
+      NO = 1
+      NO {
+        wrapItemAndSub = <li class="level_2 navibtn">|</li>
+        stdWrap.field = title
+        # darf nicht gesetzt sein, sonst wird Text ausgegeben
+        stdWrap.htmlSpecialChars = 0
+      }
+      
+      CUR = 1
+      CUR < .NO
+      CUR.wrapItemAndSub = <li class="level_2 active navibtn">|</li>
+      
+      ACT < .CUR
+      ACTIFSUB < .CUR
+    }
+  }
+
+  wrap = <div id="navigation" class="mainnav">|</div>
+}
+
+
+
+lib.footernavi = HMENU
+lib.footernavi {
+  special = directory
+  special.value = 3
+  
+  1 = TMENU
+  1 {
+    wrap = <ul>|</ul>
+    NO.wrapItemAndSub = <li>|</li>
+    CUR = 1
+    CUR.wrapItemAndSub = <li class="active">|</li>
+  }
+  wrap =   <div class="footernav">|</div>
+}

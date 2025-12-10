@@ -1,0 +1,83 @@
+lib.header = COA
+lib.header {
+
+  10 = COA
+  10 {
+
+
+    
+    10 = TEXT
+    10 {
+      value (
+        <img src="{path : EXT:sitepackage/Resources/Public/Images/welle_unten.png}" class="welle_unten"/>
+      )
+      insertData = 1
+    }
+    
+    20 = TEXT
+    20 {
+      value (
+        <a href="/"><img src="{path : EXT:sitepackage/Resources/Public/Images/Logo_GV-Liederkranz.png}" class="logo_GV-Liederkranz"/></a>
+      )
+      insertData = 1
+      wrap = <div class="logo flex_3">|</div>
+    }
+
+    30 = TEXT
+    30 {
+      value (
+        <div><a href="/der-verein/mitglied-werden" class="button-MitgliedWerden transition">Mitglied werden!</a></div>
+      )
+      wrap = <div class="mitgliedWerden flex_3">|</div>
+    }
+
+    40 < lib.mainnavi
+
+    50 < lib.pancake
+ 
+
+    wrap = <div id="header"><div class="wrapper">|</div></div>
+  }
+
+
+
+}
+    
+    
+#Startseite     
+[traverse(page, "uid") == 1]
+lib.header >
+lib.header = COA
+lib.header {
+
+  10 = COA
+  10 {
+
+    20 = TEXT
+    20 {
+      value (
+        <a href="/"><img src="{path : EXT:sitepackage/Resources/Public/Images/Logo_GV-Liederkranz.png}" class="logo_GV-Liederkranz"/></a>
+      )
+      insertData = 1
+      wrap = <div class="logo flex_3">|</div>
+    }
+
+    30 = TEXT
+    30 {
+      value (
+        <div><a href="/der-verein/mitglied-werden" class="button-MitgliedWerden transition">Mitglied werden!</a></div>
+      )
+      wrap = <div class="mitgliedWerden flex_3">|</div>
+    }
+
+    40 < lib.mainnavi
+
+    50 < lib.pancake
+
+    wrap = <div id="header"><div class="wrapper">|</div></div>
+  }
+
+
+
+}
+[end]

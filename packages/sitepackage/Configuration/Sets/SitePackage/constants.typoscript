@@ -1,0 +1,26 @@
+@import 'EXT:dp_cookieconsent/Configuration/TypoScript/constants.typoscript'
+
+# ---------------- Cookies ----------------------
+plugin.tx_cookieconsent.view.templateRootPath = EXT:sitepackage/Resources/Private/Extensions/cookies/Resources/Private/Templates
+plugin.tx_cookieconsent.view.partialRootPath = EXT:sitepackage/Resources/Private/Extensions/cookies/Resources/Private/Partials
+plugin.tx_cookieconsent.view.layoutRootPath = EXT:sitepackage/Resources/Private/Extensions/cookies/Resources/Private/Layouts
+
+plugin.tx_cookieconsent.settings.url = 9
+plugin.tx_cookieconsent.settings.target = _top
+plugin.tx_cookieconsent.settings.position = bottom-right
+plugin.tx_cookieconsent.settings.dismissOnScroll = 0
+plugin.tx_cookieconsent.settings.type = opt-out
+plugin.tx_cookieconsent.settings.layout = dpextend
+plugin.tx_cookieconsent.settings.theme = classic
+
+plugin.tx_cookieconsent.settings.overlay.box.background = #999999
+plugin.tx_cookieconsent.settings.overlay.box.text = #FFFFFF
+plugin.tx_cookieconsent.settings.overlay.button.background = #FFFFFF
+plugin.tx_cookieconsent.settings.overlay.button.text = #000000
+plugin.tx_cookieconsent.settings.palette.popup.background = #666666
+plugin.tx_cookieconsent.settings.palette.popup.text = #FFFFFF
+plugin.tx_cookieconsent.settings.palette.button.background = #FFFFFF
+plugin.tx_cookieconsent.settings.palette.button.text = #000000
+
+
+@import 'EXT:news/Configuration/TypoScript/constants.typoscript'

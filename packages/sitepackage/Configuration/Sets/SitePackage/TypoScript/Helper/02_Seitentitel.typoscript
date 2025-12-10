@@ -1,0 +1,6 @@
+config.noPageTitle = 2
+#page.headerData >
+page.headerData = COA
+page.headerData.10 = TEXT
+page.headerData.10.field = title
+page.headerData.10.wrap = <title>Gesangverein Liederkranz:&nbsp;|</title>

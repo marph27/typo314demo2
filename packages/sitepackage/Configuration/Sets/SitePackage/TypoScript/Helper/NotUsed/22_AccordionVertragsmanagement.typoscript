@@ -1,0 +1,103 @@
+[traverse(page, "uid") == 22]
+page {
+  includeCSS {
+    accordion = /typo3conf/ext/sitepackage/Resources/Public/Css/accordion.css
+  }
+  includeJSFooter {
+    accordion = EXT:sitepackage/Resources/Public/JavaScript/accordion.js
+  }
+}
+
+lib.maincontent.10 {
+  20 = COA
+  20 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      #select.orderBy = sorting
+      select.where = colPos=0
+      select.pidInList = 21
+      select.uidInList = 85
+      wrap = <li><a class="accordion-toggle layer1" href="javascript:void(0);">Vollmachten<span class="accordion-pfeil"></span></a><ul class="inner">|</ul></li>
+    }
+
+    20 = COA
+    20 {
+      10 = CONTENT
+      10 {
+        table = tt_content
+        #select.orderBy = sorting
+        select.where = colPos=0
+        select.pidInList = 21
+        select.uidInList = 86
+        wrap = <li><a href="#" class="accordion-toggle layer2">Kontaktdatenblatt der Netzbetreiber<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      20 < .10
+      20 {
+        select.uidInList = 88
+        wrap = <li><a href="#" class="accordion-toggle layer2">Preisblatt Netznutzung<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      30 < .10
+      30 {
+        select.uidInList = 89
+        wrap = <li><a href="#" class="accordion-toggle layer2">Verträge<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+      
+      40 < .10
+      40 {
+        select.uidInList = 90
+        wrap = <li><a href="#" class="accordion-toggle layer2">Muster Sperraufträge<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      wrap = <li><a class="accordion-toggle layer1" href="javascript:void(0);">Strom<span class="accordion-pfeil"></span></a><ul class="inner">|</ul></li>
+    }
+
+    30 = COA
+    30 {
+      10 = CONTENT
+      10 {
+        table = tt_content
+        #select.orderBy = sorting
+        select.where = colPos=0
+        select.pidInList = 21
+        select.uidInList = 91
+        wrap = <li><a href="#" class="accordion-toggle layer2">Kontaktdatenblatt der Netzbetreiber<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      20 < .10
+      20 {
+        select.uidInList = 92
+        wrap = <li><a href="#" class="accordion-toggle layer2">Preisblatt Netznutzung<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      30 < .10
+      30 {
+        select.uidInList = 93
+        wrap = <li><a href="#" class="accordion-toggle layer2">Verträge<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+      
+      40 < .10
+      40 {
+        select.uidInList = 94
+        wrap = <li><a href="#" class="accordion-toggle layer2">Sonstige Anlagen<span class="accordion-pfeil"></span></a><div class="inner">|</div></li>
+      }
+
+      wrap = <li><a class="accordion-toggle layer1" href="javascript:void(0);">Gas<span class="accordion-pfeil"></span></a><ul class="inner">|</ul></li>
+    }
+
+    40 < .10
+    40 {
+      select.uidInList = 95
+      wrap = <li><a class="accordion-toggle layer1" href="javascript:void(0);">Zertifikate<span class="accordion-pfeil"></span></a><ul class="inner">|</ul></li>
+    }
+
+    wrap = <div class="frame frame-ecke-rechtsUnten frame-type-shortcut frame-layout-3 moveAction"><div class="wrapper grid_12"><div class="grid-content"><ul class="accordion">|</ul></div></div></div>
+  }
+
+  25 = TEXT
+  25.value = <iframe class="vertragsabschluss" src=https://sswsp.conergos.de/vmt/vis/index.html></iframe>
+  25.wrap = <div class="frame frame-default frame-type-html frame-layout-0"><div class="wrapper grid_12"><div class="grid-content">|</div></div></div>
+}
+[end]

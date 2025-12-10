@@ -1,0 +1,211 @@
+/*------ Javascript-Debugger ----------------*/
+#output { display:none; background:orange; position:fixed; top:100px; left:0; z-index:9000; width:400px; padding:20px; }
+
+/*------ Cookies ----------------*/
+.cc-revoke { padding: 0.5em; bottom:13px !important; }
+.cc-revoke .dp--hover { padding-left:5px; display: inline-block; }
+
+.cc-window { background:#999999; }
+.cc-window .dp--cookie-check { border:none; border-top:1px solid #fff; border-radius:0; padding-top:0.5em; display:block; }
+.cc-window .dp--cookie-check label:first-child { padding-left:0px; padding-right:0px; }
+.cc-window .dp--cookie-check label:last-child { padding-right:0px; padding-left:0px;}
+.cc-window .cc-deny { display:none !important; }
+.cc-window .cc-btn { width: 48% !important; background:#820e12 !important; color:#FFF !important; }
+.cc-window .cc-btn:hover { background: #820e12 !important; }
+
+.cc-compliance { padding:1.5rem; padding-top:0;  }
+ 
+.dp--overlay-description a { color:#FFF !important; text-decoration: underline !important; }
+.dp--overlay-description a:hover { color:#FFF !important; text-decoration: none !important; text-shadow:none !important; }
+
+.dp--cookie-consent { overflow: hidden;}
+.dp--cookie-consent #header,
+.dp--cookie-consent #main,
+.dp--cookie-consent #aktuellesTermine,
+.dp--cookie-consent #choere,
+.dp--cookie-consent #footer { opacity:0.5; pointer-events: none; }
+
+/*------ Cookie-Tabelle auf Datenschutzseite ----------------*/
+.table-striped { width:100%; border-collapse:collapse; }
+.table-striped td, .table-striped th { padding:10px; text-align:left; border:2px solid #FFF; }
+.table-striped td.CookieHead { border-top:20px solid #FFF; }
+
+
+
+
+/* --------- Allgemeines ---------------------------------------------------------------------*/
+html { height:100%; }
+body { height:100%; }
+  .wrapper { box-sizing:border-box; position:relative; display:block; margin-left:auto; margin-right:auto; padding:3%; }
+  .hide { display:none; }
+
+  .image-caption { font-size: 0.8em; font-style: italic; }
+
+  .no-scroll {height:100%; overflow:hidden; }
+  .transition {  
+    transition: all 0.4s ease-in 0s; /* explorer 10 */
+    -webkit-transition: all 0.4s ease-in 0s; /* chrome & safari */
+    -moz-transition: all 0.4s ease-in 0s; /* firefox */
+    -o-transition: all 0.4s ease-in 0s; /* opera */
+  }
+
+  .ce-gallery img { display: block; max-width: 100%; height: auto; }
+  .ce-intext.ce-right .ce-gallery, .ce-intext.ce-left .ce-gallery, .ce-above .ce-gallery { margin-bottom: clamp(20px, 3%, 40px); }
+  .ce-intext.ce-left .ce-gallery { margin-right:clamp(20px, 3%, 40px); }
+  .ce-intext.ce-right .ce-gallery { margin-left:clamp(20px, 3%, 40px); }
+
+
+  figure.table { margin: 1em 0; }
+  figure.table td:first-child { padding-right:1em; }
+
+  .contenttable td { vertical-align: top; }
+  
+body.startseite { background:#7C0D0F url('../Images/Back_Startseite.jpg') no-repeat center top; background-size:cover; }
+
+/* --------- Container: Grid-Spalten ---------------------------------------------------------------------*/
+  .grid_12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 3%;
+  }
+  .grid_6-6 .grid-column-111 { grid-column: 1 / span 6; }
+  .grid_6-6 .grid-column-112 { grid-column: 7 / span 6; }
+  
+  .grid_4-4-4 .grid-column-111 { grid-column: 1 / span 4; }
+  .grid_4-4-4 .grid-column-112 { grid-column: 5 / span 4; }
+  .grid_4-4-4 .grid-column-113 { grid-column: 9 / span 4; }
+
+/* --------- Content-Layouts -------------*/ 
+
+  /* Für alle Content-Layouts*/
+  .frame { position: relative; display: flow-root; }
+  .frame .grid-content { grid-column: 1 / span 12; }
+
+  
+/* --------- Main Content -------------*/ 
+#main { position:relative; color:#312a2e; }
+#main .wrapper { padding:7% 3%;  }
+.startseite #main .wrapper > div { width:50%; color:#FFF; }
+.startseite #main .wrapper > div h1 { color:#FFF; }
+.startseite #main .wrapper > div h2 { color:#FFF; font-weight: 300; }
+
+/* Stellt den Container des Videos responsiv ein */
+.responsive-video {
+  position: relative; 
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 25px; 
+  height: 0;
+}
+
+/* Stellt das iframe des Videos so ein, dass es den Container voll ausfüllt */
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border:none;
+}
+
+/* Bilder innerhalp des picture-Tags auf 100% stellen */
+.ce-intext.ce-right .ce-gallery { margin-left: 5%; }
+.img-responsive { width:100%; }
+
+
+/*------ Content ----------------*/
+.content {  }
+
+  .content p, .content ul {  margin:0; padding-bottom:2rem; list-style-type:square; }
+  .content ul ul {  margin:0; padding-bottom:0px; }
+  .content img { max-width:100%; height:auto; }
+
+  .ce-textpic { overflow:visible; }
+  .ce-column { margin-bottom:20px; }
+  .ce-row { margin-bottom:0; }
+
+
+
+
+  /* --------- Header -------------*/
+  #header { position: relative; background:url('../Images/Back_Subsites.jpg') no-repeat center top; background-size:cover; }
+    .startseite #header { background: none; }
+  #header > .wrapper { padding:0 3% 10%; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .startseite #header > .wrapper { padding:0 3%; }
+  #header .wrapper .logo { min-width:230px; margin-top:3%; }
+  #header .wrapper .logo img { display:block; width:100%; height: auto;}
+
+  #header .mitgliedWerden { min-width: 300px; min-height: 100px; white-space: nowrap; position:relative; box-sizing: border-box; font-size: 1.2em; background:url('../Images/Back_MitgliedWerden.png') no-repeat left top; background-size:contain; padding:2% 12% 0 2%; }
+  #header img.welle_unten { display:block; position: absolute; bottom:0; left:0; width:100%; height:auto; }
+
+  /* --------- Navigation -------------*/
+  #navigation { padding-top:4%; width:100%; }
+  #navigation .pancakeBackground { position:absolute; top:0; right:0; min-width:350px !important; }
+
+
+  /* --------- Aktuelles Termine -------------*/
+  #aktuellesTermine { position: relative; 
+    clip-path: polygon( 100% 100%,100% 10.025%,100% 10.025%,99.464% 9.914%,98.922% 9.81%,98.374% 9.714%,97.821% 9.626%,97.262% 9.546%,96.699% 9.473%,96.129% 9.408%,95.555% 9.352%,94.976% 9.304%,94.391% 9.264%,94.391% 9.264%,93.762% 9.231%,93.128% 9.208%,92.488% 9.194%,91.843% 9.191%,91.193% 9.198%,90.537% 9.215%,89.877% 9.243%,89.211% 9.282%,88.541% 9.331%,87.866% 9.391%,87.866% 9.391%,87.337% 9.44%,86.807% 9.485%,86.277% 9.525%,85.746% 9.56%,85.214% 9.592%,84.682% 9.618%,84.15% 9.641%,83.617% 9.66%,83.084% 9.674%,82.55% 9.685%,82.55% 9.685%,81.924% 9.692%,81.297% 9.694%,80.67% 9.691%,80.042% 9.682%,79.415% 9.668%,78.786% 9.649%,78.157% 9.626%,77.528% 9.598%,76.899% 9.565%,76.27% 9.527%,76.27% 9.527%,75.499% 9.475%,74.728% 9.417%,73.957% 9.352%,73.186% 9.281%,72.415% 9.204%,71.644% 9.122%,70.873% 9.033%,70.102% 8.94%,69.331% 8.841%,68.561% 8.737%,68.561% 8.737%,67.875% 8.641%,67.191% 8.541%,66.506% 8.437%,65.822% 8.33%,65.138% 8.219%,64.455% 8.106%,63.772% 7.989%,63.09% 7.87%,62.408% 7.747%,61.727% 7.622%,61.727% 7.622%,60.986% 7.483%,60.246% 7.341%,59.507% 7.197%,58.769% 7.05%,58.032% 6.901%,57.296% 6.749%,56.561% 6.596%,55.828% 6.44%,55.095% 6.283%,54.364% 6.125%,54.364% 6.125%,53.388% 5.911%,52.415% 5.695%,51.444% 5.478%,50.477% 5.259%,49.512% 5.04%,48.55% 4.82%,47.592% 4.601%,46.636% 4.382%,45.684% 4.163%,44.736% 3.946%,44.736% 3.946%,44.044% 3.788%,43.354% 3.632%,42.667% 3.476%,41.981% 3.322%,41.298% 3.169%,40.617% 3.018%,39.938% 2.869%,39.261% 2.721%,38.587% 2.576%,37.916% 2.434%,37.916% 2.434%,36.982% 2.238%,36.054% 2.048%,35.131% 1.864%,34.213% 1.686%,33.3% 1.514%,32.393% 1.349%,31.492% 1.192%,30.596% 1.043%,29.706% 0.901%,28.823% 0.768%,28.823% 0.768%,27.017% 0.523%,25.239% 0.321%,23.491% 0.164%,21.772% 0.058%,20.085% 0.005%,18.431% 0.01%,16.811% 0.077%,15.226% 0.209%,13.678% 0.409%,12.167% 0.682%,12.167% 0.682%,11.583% 0.811%,11.006% 0.951%,10.435% 1.103%,9.87% 1.268%,9.311% 1.446%,8.759% 1.636%,8.213% 1.84%,7.674% 2.058%,7.141% 2.289%,6.615% 2.533%,6.615% 2.533%,5.891% 2.9%,5.18% 3.294%,4.483% 3.717%,3.799% 4.17%,3.13% 4.653%,2.475% 5.167%,1.834% 5.712%,1.208% 6.289%,0.596% 6.899%,0% 7.542%,0% 100%,100% 100% );
+    background:url('../Images/Back_AktuellesTermine.jpg') no-repeat left top; background-size:cover;  
+  }
+  #aktuellesTermine .wrapper { padding:7% 3% 10%; display:flex; flex-wrap: wrap; justify-content: space-between; }
+  #aktuellesTermine .aktuelles h2 { color:#FFF; padding-bottom:5%; }
+  #aktuellesTermine .aktuelles-subheader { font-size:0.5em; display:block; font-weight:300; text-transform: initial;  }
+  #aktuellesTermine .aktuelles { color: #FFF; padding-right:5%; box-sizing: border-box; }
+  #aktuellesTermine .aktuelles img { display: block; width: 100%; height:auto; border-radius:0.5em; }
+  #aktuellesTermine .aktuelles a { color: #FFF; }
+
+  #aktuellesTermine .termine { position:relative; padding:10% 10%; margin-top:-10%; box-sizing: border-box; background:url('../Images/Back_Termine.png') no-repeat left top; background-size:100% 100%;  }
+  #aktuellesTermine .termine h2 { color:#000; }
+  #aktuellesTermine .termine .termine-home-list-view .article { margin:1.5em 0;  }
+  #aktuellesTermine .termine .termine-home-list-view h3 { padding:0; font-size:1.4em; }
+  #aktuellesTermine .termine .termine-home-list-view p { margin:0; }
+
+  #aktuellesTermine img.welle_unten { display:block; position: absolute; bottom:0; left:0; width:100%; height:auto; }
+
+
+  /* --------- Chöre -------------*/
+  #choere { overflow: hidden; background:#FFF; margin-top:-1px; /*durch margin-top:-1px; wird ein Blitzer verhindert!*/ }
+  #choere .wrapper { padding:7% 3%; }
+  #choere h2 { padding-left:0.7em; }
+  #choere .choere-box { padding:2em 1em 0; }
+  #choere .choere-box:hover  { transform: scale(1.05); }
+
+  #choere .choere-header { padding:0 0.5em; }
+  #choere .choere-image { display: block; border-radius:0.5em; width: 100%; height: auto; margin:0.8em 0 0.5em; }
+  #choere .choere-content { padding:0 0.5em; }
+  #choere .choere-content p { padding:0; margin:0; }
+
+  #main #choere .wrapper { padding:7% 0; }
+  #main #choere h2 { display: none; }
+  #main #choere .choere-slider { display: flex; flex-wrap: wrap;  }
+  #main #choere .choere-box { width: 50%; box-sizing: border-box; }
+
+
+
+/* --------- Adresse -------------*/
+#footer { position:relative; width:100%; background: #820e12 url('../Images/Back_Footer.jpg') no-repeat right top; background-size:cover; overflow: hidden; }
+#footer img.welle_oben { display:block; position: absolute; top:0; left:0; width:100%; height:auto; }
+  #footer .wrapper { padding: 30% 3% 0; display:flex; flex-wrap: wrap; justify-content: space-between; }
+
+  /* Footernavigation */ 
+  .footernav_box { min-height: 150px; position:relative; display: flex; justify-content: flex-end; flex-direction: column; background:url('../Images/Back_Footernav.png') no-repeat left bottom; background-size:contain; padding:0 12% 3% 2%; }
+  .footernav { position:relative; display: flex; justify-content: center; flex-direction: column; }
+  .footernav ul { list-style-type:none; margin:0; padding:0; display:flex; }
+  .footernav ul li { line-height:30px; margin:0 5%; }
+  .footernav ul li a { color:#000; display:inline-block; padding:0; text-decoration:none;
+    transition: all 0.4s ease-in 0s; /* explorer 10 */
+    -webkit-transition: all 0.4s ease-in 0s; /* chrome & safari */
+    -moz-transition: all 0.4s ease-in 0s; /* firefox */
+    -o-transition: all 0.4s ease-in 0s; /* opera */
+  }
+  .footernav ul li.active a { color:#820e12; }
+  .footernav ul li a:hover { color:#820e12; transform: scale(1.05); }
+  
+
+  .adresse { padding-bottom:3%; color: #FFF; }
+  .adresse span.saengerheim { font-weight: 700; }
+  .adresse a { color: #FFF; display: block; }
+  .adresse a:hover { color: #FFF; transform: scale(1.05); }
+  .adresse p:last-child { margin-bottom:0; }
+
+

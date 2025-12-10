@@ -1,0 +1,53 @@
+plugin.tx_news.view.templateRootPaths.100 = EXT:sitepackage/Resources/Private/Extensions/news/Resources/Private/Templates/
+plugin.tx_news.view.partialRootPaths.100 = EXT:sitepackage/Resources/Private/Extensions/news/Resources/Private/Partials/
+plugin.tx_news.view.layoutRootPaths.100 = EXT:sitepackage/Resources/Private/Extensions/news/Resources/Private/Layouts/
+# Hier evtl. noch CSS verschieben, dass es funktioniert
+plugin.tx_news.settings.cssFile = EXT:sitepackage/Resources/Public/Css/news-basic.css
+
+plugin.tx_news.settings.displayDummyIfNoMedia = 0
+
+plugin.tx_news.settings.list {
+  # media configuration
+  media {
+    image {
+      maxWidth = 1000
+      maxHeight = 1000
+    }
+  }
+}
+
+
+lib.aktuellesTermine = COA
+lib.aktuellesTermine {
+  10 = COA
+  10 {
+    10 = TEXT
+    10.value = <h2><span class="aktuelles-subheader">Immer etwas los bei uns</span>Aktuelles</h2>
+    
+    20 = CONTENT
+    20 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=10
+      select.languageField = sys_language_uid
+    }
+    wrap = <div class="flex_6 aktuelles">|</div>
+  }
+
+  20 = COA
+  20 {
+    10 = TEXT
+    10.value = <h2>Termine</h2>
+
+    20 = CONTENT
+    20 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=15
+      select.languageField = sys_language_uid
+    }
+    wrap = <div class="flex_6 termine">|</div>
+  }   
+
+  wrap = <div id="aktuellesTermine"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/welle_unten.png" class="welle_unten"><div class="wrapper">|</div></div>
+}

@@ -1,0 +1,72 @@
+#
+# BACKENDLAYOUT: DEFAULT
+#
+mod {
+    web_layout {
+        BackendLayouts {
+            default {
+                title = Default
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Inhalt
+                                        colPos = 0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:sitepackage/Resources/Public/Icons/BackendLayouts/example.svg
+            }
+            
+            startseite {
+                title = Startseite
+                config {
+                    backend_layout {
+                        colCount = 1
+                        rowCount = 1
+                        rows {
+                            1 {
+                                columns {
+                                    1 {
+                                        name = Inhalt
+                                        colPos = 0
+                                        colspan = 2
+                                    }
+                                }
+                            }
+                            2 {
+                                columns {
+                                    1 {
+                                        name = Aktuelles
+                                        colPos = 10
+                                    }
+                                    2 {
+                                        name = Termine
+                                        colPos = 15
+                                    }
+                                }
+                            }
+                            3 {
+                                columns {
+                                    1 {
+                                        name = Chöre
+                                        colPos = 20
+                                        colspan = 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                icon = EXT:sitepackage/Resources/Public/Icons/BackendLayouts/example.svg
+            }
+        }
+    }
+}

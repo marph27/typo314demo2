@@ -1,0 +1,37 @@
+[traverse(page, "uid") == 1]
+
+lib.maincontent = COA
+lib.maincontent {
+  50 = COA
+  50 {
+    10 = CONTENT
+    10 {
+      table = tt_content
+      select.orderBy = sorting
+      select.where = colPos=50
+      select.languageField = sys_language_uid
+      wrap = <div id="team" class="pinnedBox"><div class="wrapper grid_12"><div class="team-content"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/icon_VISCONTO.png" class="icon_visconto">|</div></div><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/ecke_dunkelrot.png" class="team-ecke"></div>
+    }
+
+    20 = TEXT
+    20 {
+      value (
+        <a href="/fileadmin/Bilder/Karriere/team_image_01neu.jpg" class="team_image team_image_01 fancybox" data-fancybox-group="team" title="Eingangsbereich"></a>
+        <a href="/fileadmin/Bilder/Karriere/team_image_02.jpg" class="team_image team_image_02 fancybox" data-fancybox-group="team" title="Team in Action"></a>
+        <a href="/fileadmin/Bilder/Karriere/team_image_03.jpg" class="team_image team_image_03 fancybox" data-fancybox-group="team" title="Immer ein lächeln"></a>
+        <a href="/fileadmin/Bilder/Karriere/team_image_04.jpg" class="team_image team_image_04 fancybox" data-fancybox-group="team" title="Besprechung"></a>
+        <a href="/fileadmin/Bilder/Karriere/team_image_05.jpg" class="team_image team_image_05 fancybox" data-fancybox-group="team" title="Unser Gebäude"></a>
+      )
+      wrap = <div id="team2" class="pinnedBox"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/back_team2.png" class="back_team2"><div class="wrapper grid_16">|</div></div>
+    }
+
+    30 = TEXT
+    30 {
+      value = <h2>Lust, bei uns mitzuspielen?</h2><a href="/karriere" class="button button_weiss">Aktuelle <strong>Jobausschreibungen</strong></a>
+      wrap = <div id="team3" class="pinnedBox"><img src="/typo3conf/ext/sitepackage/Resources/Public/Images/ecke_grau.png" class="back_team3"><div class="wrapper grid_12"><div class="team3-content">|</div></div></div>
+    }
+  }
+
+}
+
+[end]

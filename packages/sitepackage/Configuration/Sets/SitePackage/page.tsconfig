@@ -1,0 +1,27 @@
+@import './PageTsConfig/BackendLayouts/'
+
+RTE {
+    default {
+        preset = sitepackage
+    }
+}
+
+TCEFORM {
+    pages {
+
+    }
+    tt_content {
+
+    }
+}
+
+TCEMAIN {
+
+}
+
+
+tx_news.templateLayouts {
+    1 = Aktuelles
+    2 = Termine (Hpme)
+    3 = Termine
+}

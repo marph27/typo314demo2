@@ -1,0 +1,31 @@
+.flex_1,
+.flex_2,
+.flex_3,
+.flex_4,
+.flex_5,
+.flex_6,
+.flex_7,
+.flex_8,
+.flex_9,
+.flex_10,
+.flex_11,
+.flex_12 {
+  display: block;
+  position:relative;
+}
+
+.flex_1 { width: 10%; }
+.flex_2 { width: 15%; }
+.flex_3 { width: 25%; }
+.flex_4 { width: 30%; }
+.flex_5 { width: 40%; }
+.flex_6 { width: 50%; }
+.flex_7 { width: 60%; }
+.flex_8 { width: 70%; }
+.flex_9 { width: 75%; }
+.flex_10 { width: 85%; }
+.flex_11 { width: 90%; }
+.flex_12 { width: 100%; }
+
+.flex_alpha {}
+.flex_omega {  }
