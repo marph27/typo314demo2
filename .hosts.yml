@@ -1,0 +1,6 @@
+hosts:
+  production:
+    hostname: '92.205.51.96'
+    port: 22
+    remote_user: 'ssh-257881-sshlogin'
+    deploy_path: '/kunden/257881_97753/webseiten/typo314demo2/production'

@@ -11,8 +11,17 @@ return [
     'DB' => [
         'Connections' => [
             'Default' => [
-                'charset' => 'utf8',
+                'charset' => 'utf8mb4',
+                'dbname' => 'db257881_255',
+                'defaultTableOptions' => [
+                    'charset' => 'utf8mb4',
+                    'collation' => 'utf8mb4_unicode_ci',
+                ],
                 'driver' => 'mysqli',
+                'host' => 'localhost',
+                'password' => 'q*ZQE@#UTeLFHt7pAJ96',
+                'port' => 3306,
+                'user' => 'db257881_255',
             ],
         ],
     ],

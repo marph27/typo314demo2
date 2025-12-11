@@ -15,7 +15,7 @@ import('.hosts.yml');
 set('http_user', '483502');
 set('http_group', 'kunde');
 
-set('/usr/bin/php', 'php');
+set('/usr/bin/php', '/usr/bin/php83-cli');
 set('bin/typo3', '{{release_path}}/vendor/bin/typo3');
 
 // Set maximum number of releases

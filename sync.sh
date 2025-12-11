@@ -175,14 +175,14 @@ function push_database {
 
 
     echo "Übertrage Dump zum Produktionsserver..."
-    scp dump.sql $REMOTE_HOST:/tmp/dump.sql
+    scp dump.sql $REMOTE_HOST:$SHARED_PATH/tmp/dump.sql
     if ! check_error "Übertragen des Dumps fehlgeschlagen"; then
         rm -f dump.sql
         return 1
     fi
 
     echo "Importiere Dump in die Produktionsdatenbank..."
-    ssh $REMOTE_HOST "mysql -h $DB_HOST -u $DB_USER -p'$DB_PASS' $DB_NAME < /tmp/dump.sql && rm -f /tmp/dump.sql"
+    ssh $REMOTE_HOST "mysql -h $DB_HOST -u $DB_USER -p'$DB_PASS' $DB_NAME < $SHARED_PATH/tmp/dump.sql && rm -f $SHARED_PATH/tmp/dump.sql"
     if ! check_error "Importieren des Dumps auf dem Produktionsserver fehlgeschlagen"; then
         rm -f dump.sql
         return 1
