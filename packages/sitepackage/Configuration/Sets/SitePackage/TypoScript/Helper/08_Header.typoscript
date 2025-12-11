@@ -20,7 +20,7 @@ lib.header {
         <a href="/"><img src="{path : EXT:sitepackage/Resources/Public/Images/Logo_GV-Liederkranz.png}" class="logo_GV-Liederkranz"/></a>
       )
       insertData = 1
-      wrap = <div class="logo flex_3">|</div>
+      wrap = <div class="logo flex_3">|Test</div>
     }
 
     30 = TEXT
