@@ -85,8 +85,11 @@ $exclude = [
     '.github',
     // CLAUDE.md (development documentation)
     'CLAUDE.md',
+    // Sync-Daten
     'config.sh',
-    'sync.sh'
+    'sync.sh',
+    // SiteSet-Konfigurationsdatei
+    '/config/sites/config.yaml'
 ];
 
 // Define rsync options
