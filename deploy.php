@@ -89,7 +89,7 @@ $exclude = [
     'config.sh',
     'sync.sh',
     // SiteSet-Konfigurationsdatei
-    '/config/sites/config.yaml'
+    '/config/sites/main/config.yaml'
 ];
 
 // Define rsync options
