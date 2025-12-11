@@ -87,9 +87,7 @@ $exclude = [
     'CLAUDE.md',
     // Sync-Daten
     'config.sh',
-    'sync.sh',
-    // SiteSet-Konfigurationsdatei
-    '/config/sites/main/config.yaml'
+    'sync.sh'
 ];
 
 // Define rsync options

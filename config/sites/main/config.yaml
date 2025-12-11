@@ -1,4 +1,4 @@
-base: 'https://typo314demo2.ddev.site/'
+base: '/'
 dependencies:
   - wmgraphix/sitepackage
 languages:
