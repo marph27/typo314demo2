@@ -122,7 +122,7 @@ task(
     $dumpFile = "dbbackup-{$timestamp}.sql";
 
     // Datenbank-Export in den Shared-Folder schreiben
-    run("{{bin/typo3}} database:export > {{deploy_path}}/shared/{$dumpFile}");
+    run("{{bin/typo3}} database:export > {{deploy_path}}/shared/tmp/{$dumpFile}");
 }
 );
 desc('Flush page caches');
