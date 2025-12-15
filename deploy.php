@@ -174,7 +174,7 @@ task('correct_permissions', function () {
 // Register TYPO3 tasks
 before('deploy:symlink', function () {
     // 1. Backup-Operationen
-    invoke('typo3:database:export');
+    //invoke('typo3:database:export');
 
     // 2. Strukturelle Änderungen
     invoke('typo3:fix_folder_structure');
