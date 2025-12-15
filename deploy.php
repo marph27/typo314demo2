@@ -1,4 +1,4 @@
-#!/usr/bin/php8.3
+#!/usr/bin/php83
 <?php
 
 declare(strict_types=1);
